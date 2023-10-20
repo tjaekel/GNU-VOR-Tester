@@ -1,6 +1,7 @@
 options:
   parameters:
     author: Torsten Jaekel
+    catch_exceptions: 'True'
     category: '[GRC Hier Blocks]'
     cmake_opt: ''
     comment: ''
@@ -22,7 +23,7 @@ options:
     sizing_mode: fixed
     thread_safe_setters: ''
     title: VOR Tester
-    window_size: ''
+    window_size: (1000,1000)
   states:
     bus_sink: false
     bus_source: false
@@ -39,7 +40,7 @@ blocks:
     gui_hint: ''
     label: Bearing (0...180deg)
     min_len: '200'
-    orient: Qt.Horizontal
+    orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
     step: '1'
@@ -74,7 +75,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: 250e3
+    value: 1024*32
   states:
     bus_sink: false
     bus_source: false
@@ -167,6 +168,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: float
     waveform: analog.GR_SIN_WAVE
   states:
@@ -189,6 +191,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: float
     waveform: analog.GR_SIN_WAVE
   states:
@@ -211,6 +214,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: float
     waveform: analog.GR_SQR_WAVE
   states:
@@ -233,6 +237,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: float
     waveform: analog.GR_SQR_WAVE
   states:
@@ -257,6 +262,7 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -297,7 +303,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [919, 415]
+    coordinate: [1040.0, 408]
     rotation: 90
     state: true
 - name: blocks_delay_0
@@ -310,6 +316,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
+    showports: 'False'
     type: float
     vlen: '1'
   states:
@@ -317,6 +324,24 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [513, 307]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: generatedVOR.rec
+    type: complex
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1584, 652.0]
     rotation: 0
     state: true
 - name: blocks_float_to_complex_0
@@ -357,6 +382,24 @@ blocks:
     coordinate: [635, 307]
     rotation: 0
     state: true
+- name: blocks_multiply_const_vxx_1
+  id: blocks_multiply_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '0.9'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1352, 668.0]
+    rotation: 0
+    state: true
 - name: blocks_multiply_const_vxx_2
   id: blocks_multiply_const_vxx
   parameters:
@@ -372,7 +415,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [914, 620]
+    coordinate: [976, 620.0]
     rotation: 0
     state: true
 - name: blocks_multiply_const_vxx_3
@@ -426,7 +469,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [782, 608]
+    coordinate: [848, 648.0]
     rotation: 0
     state: true
 - name: blocks_multiply_xx_1
@@ -464,13 +507,13 @@ blocks:
     minoutbuf: '0'
     samp_rate: samp_rate
     type: fir_filter_ccf
-    width: 2e3
-    win: firdes.WIN_HAMMING
+    width: 10e3
+    win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1206, 203]
+    coordinate: [1328, 200.0]
     rotation: 0
     state: true
 - name: osmosdr_sink_0
@@ -731,7 +774,68 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1070, 372]
+    coordinate: [1496, 412.0]
+    rotation: 0
+    state: disabled
+- name: qtgui_waterfall_sink_x_0
+  id: qtgui_waterfall_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '0'
+    color10: '0'
+    color2: '0'
+    color3: '0'
+    color4: '0'
+    color5: '0'
+    color6: '0'
+    color7: '0'
+    color8: '0'
+    color9: '0'
+    comment: ''
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    int_max: '10'
+    int_min: '-140'
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '1'
+    showports: 'False'
+    type: complex
+    update_time: '0.10'
+    wintype: window.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1560, 228.0]
     rotation: 0
     state: true
 
@@ -750,12 +854,16 @@ connections:
 - [blocks_delay_0, '0', blocks_multiply_const_vxx_0, '0']
 - [blocks_float_to_complex_0, '0', low_pass_filter_0, '0']
 - [blocks_multiply_const_vxx_0, '0', blocks_add_xx_0, '2']
+- [blocks_multiply_const_vxx_1, '0', blocks_file_sink_0, '0']
 - [blocks_multiply_const_vxx_2, '0', blocks_complex_to_float_2, '0']
 - [blocks_multiply_const_vxx_3, '0', blocks_add_xx_0, '0']
 - [blocks_multiply_const_xx_0, '0', analog_nbfm_tx_0, '0']
 - [blocks_multiply_xx_0, '0', blocks_multiply_const_vxx_2, '0']
 - [blocks_multiply_xx_1, '0', blocks_multiply_const_vxx_3, '0']
+- [low_pass_filter_0, '0', blocks_multiply_const_vxx_1, '0']
 - [low_pass_filter_0, '0', osmosdr_sink_0, '0']
+- [low_pass_filter_0, '0', qtgui_waterfall_sink_x_0, '0']
 
 metadata:
   file_format: 1
+  grc_version: 3.10.7.0

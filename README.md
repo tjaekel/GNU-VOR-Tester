@@ -25,3 +25,14 @@ But you CANNOT use to test, calibrate your VOR receiver in an airplane.
 The tester is for use at home, to demonstrate ... only, not for maintaining
 VOR receivers in real airplanes!
 
+## VOR Tx and Rx Demo
+You can use the GRC graph "VOR_Tester_FINAL.grc" (let it run/play for a minute)
+in order to create a file/
+This file can be played (as file source) via "VOR_playFile_Simulator2.grc":
+It will demodulate the generated signal and via OBS knob you can figure out
+what the location (FROM) the station was.
+
+ATTENTION: the receiver as "VOR_playFile_Simulator2,grc" will not work with a
+a real SDR receiver, on a real VOR signal:
+The internal waveforms are trimmed and not the right way on a live signal!
+

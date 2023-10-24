@@ -388,7 +388,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    const: '0.9'
+    const: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
     type: complex
@@ -513,9 +513,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1328, 200.0]
+    coordinate: [1368, 204.0]
     rotation: 0
-    state: true
+    state: disabled
 - name: osmosdr_sink_0
   id: osmosdr_sink
   parameters:
@@ -774,7 +774,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1496, 412.0]
+    coordinate: [1584, 420.0]
     rotation: 0
     state: disabled
 - name: qtgui_waterfall_sink_x_0
@@ -835,7 +835,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1560, 228.0]
+    coordinate: [1624, 36.0]
     rotation: 0
     state: true
 
@@ -852,7 +852,9 @@ connections:
 - [blocks_add_xx_0, '0', blocks_float_to_complex_0, '0']
 - [blocks_complex_to_float_2, '0', blocks_add_xx_0, '3']
 - [blocks_delay_0, '0', blocks_multiply_const_vxx_0, '0']
+- [blocks_float_to_complex_0, '0', blocks_multiply_const_vxx_1, '0']
 - [blocks_float_to_complex_0, '0', low_pass_filter_0, '0']
+- [blocks_float_to_complex_0, '0', qtgui_waterfall_sink_x_0, '0']
 - [blocks_multiply_const_vxx_0, '0', blocks_add_xx_0, '2']
 - [blocks_multiply_const_vxx_1, '0', blocks_file_sink_0, '0']
 - [blocks_multiply_const_vxx_2, '0', blocks_complex_to_float_2, '0']

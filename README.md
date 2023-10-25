@@ -36,3 +36,10 @@ ATTENTION: the receiver as "VOR_playFile_Simulator2,grc" will not work with a
 a real SDR receiver, on a real VOR signal:
 The internal waveforms are trimmed and not the right way on a live signal!
 
+## Demodulate a recorded VOR file
+The file "File_Analyzer.grc" is intended to demodulate a real live signal,
+recorded with HackRFOne in the vinicity of a VOR (ELB, 117.2, in SoCal).
+BUT!:
+It works to hear the morse code, I get the 30 Hz reference and variable signals.But both 30 Hz sine waves are drifting: there is not a constant phase difference.
+It is the graph itself, because it happens also with a GRC to generate a VOR signal. They drift as well.
+

@@ -207,7 +207,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 260.0]
+    coordinate: [208, 260.0]
     rotation: 0
     state: true
 - name: analog_agc2_xx_0_0
@@ -403,7 +403,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: C:\Users\tj\Documents\GNURadio\HackRF-20231024_141819-117_2MHz-2MSps-2MHz.complex
+    file: C:\Users\tj\Documents\GNURadio\ELB_VOR_2MSPS.complex
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -452,6 +452,27 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [1768, 548.0]
+    rotation: 0
+    state: true
+- name: blocks_throttle2_0
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [80, 396.0]
     rotation: 0
     state: true
 - name: dc_blocker_xx_0
@@ -690,7 +711,7 @@ blocks:
     marker7: '-1'
     marker8: '-1'
     marker9: '-1'
-    name: Reference30Hz
+    name: Signals_30Hz
     nconnections: '2'
     size: '1024'
     srate: '500'
@@ -734,6 +755,67 @@ blocks:
     coordinate: [1848, 636.0]
     rotation: 0
     state: true
+- name: qtgui_waterfall_sink_x_0
+  id: qtgui_waterfall_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    axislabels: 'True'
+    bw: samp_rate/40
+    color1: '0'
+    color10: '0'
+    color2: '0'
+    color3: '0'
+    color4: '0'
+    color5: '0'
+    color6: '0'
+    color7: '0'
+    color8: '0'
+    color9: '0'
+    comment: ''
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    int_max: '10'
+    int_min: '-140'
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '1'
+    showports: 'False'
+    type: complex
+    update_time: '0.10'
+    wintype: window.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [568, 20.0]
+    rotation: 0
+    state: true
 - name: rational_resampler_xxx_0_0
   id: rational_resampler_xxx
   parameters:
@@ -771,7 +853,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [328, 428.0]
+    coordinate: [336, 452.0]
     rotation: 0
     state: true
 - name: utility
@@ -800,9 +882,10 @@ connections:
 - [band_pass_filter_0_0_0, '0', dc_blocker_xx_1, '0']
 - [blocks_complex_to_mag_0, '0', blocks_multiply_const_vxx_0, '0']
 - [blocks_delay_0, '0', low_pass_filter_0_1, '0']
-- [blocks_file_source_0, '0', analog_agc2_xx_0, '0']
+- [blocks_file_source_0, '0', blocks_throttle2_0, '0']
 - [blocks_multiply_const_vxx_0, '0', audio_sink_0, '0']
 - [blocks_multiply_const_vxx_1, '0', qtgui_time_sink_x_0_0_0_0, '0']
+- [blocks_throttle2_0, '0', analog_agc2_xx_0, '0']
 - [dc_blocker_xx_0, '0', low_pass_filter_0, '0']
 - [dc_blocker_xx_0_0, '0', analog_agc2_xx_0_0_1, '0']
 - [dc_blocker_xx_1, '0', analog_agc2_xx_0_0, '0']
@@ -811,6 +894,7 @@ connections:
 - [low_pass_filter_0_0, '0', blocks_complex_to_mag_0, '0']
 - [low_pass_filter_0_1, '0', analog_am_demod_cf_0, '0']
 - [low_pass_filter_1, '0', dc_blocker_xx_0, '0']
+- [low_pass_filter_1, '0', qtgui_waterfall_sink_x_0, '0']
 - [low_pass_filter_1, '0', rational_resampler_xxx_0_0_0, '0']
 - [rational_resampler_xxx_0_0, '0', low_pass_filter_0_0, '0']
 - [rational_resampler_xxx_0_0_0, '0', blocks_delay_0, '0']

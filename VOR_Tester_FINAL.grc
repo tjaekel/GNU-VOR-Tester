@@ -75,7 +75,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: 1024*32
+    value: 2e6
   states:
     bus_sink: false
     bus_source: false
@@ -113,7 +113,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1120, 177]
+    coordinate: [1116.0, 200]
     rotation: 90
     state: true
 - name: analog_const_source_x_1
@@ -132,7 +132,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [813, 138]
+    coordinate: [816, 132.0]
     rotation: 0
     state: true
 - name: analog_nbfm_tx_0
@@ -152,7 +152,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [639, 451]
+    coordinate: [632, 452.0]
     rotation: 0
     state: true
 - name: analog_sig_source_x_0
@@ -162,7 +162,7 @@ blocks:
     alias: ''
     amp: '1'
     comment: ''
-    freq: '1000'
+    freq: '1020'
     maxoutbuf: '0'
     minoutbuf: '0'
     offset: '0'
@@ -198,7 +198,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [182, 271]
+    coordinate: [184, 292.0]
     rotation: 0
     state: true
 - name: analog_sig_source_x_2
@@ -207,7 +207,9 @@ blocks:
     affinity: ''
     alias: ''
     amp: '1'
-    comment: ''
+    comment: 'very simple ID generation,
+
+      as "TTT"'
     freq: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -221,7 +223,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [348, 69]
+    coordinate: [352, 36.0]
     rotation: 0
     state: true
 - name: analog_sig_source_x_2_0
@@ -256,7 +258,7 @@ blocks:
     comment: 'FM REF signal subcarrier
 
       (actually 9960 Hz)'
-    freq: 9960-360
+    freq: '9960'
     maxoutbuf: '0'
     minoutbuf: '0'
     offset: '0'
@@ -269,7 +271,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [183, 392]
+    coordinate: [184, 444.0]
     rotation: 0
     state: true
 - name: blocks_add_xx_0
@@ -287,7 +289,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1007, 110]
+    coordinate: [1008, 104.0]
     rotation: 0
     state: true
 - name: blocks_complex_to_float_2
@@ -303,7 +305,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1040.0, 408]
+    coordinate: [1120.0, 464]
     rotation: 90
     state: true
 - name: blocks_delay_0
@@ -323,7 +325,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [513, 307]
+    coordinate: [512, 332.0]
     rotation: 0
     state: true
 - name: blocks_file_sink_0
@@ -332,8 +334,14 @@ blocks:
     affinity: ''
     alias: ''
     append: 'False'
-    comment: ''
-    file: generatedVOR.rec
+    comment: 'record to file or
+
+      connect to SDR Tx block
+
+      (and set RF frequency,
+
+      here all is as baseband)'
+    file: generatedVOR_2M.rec
     type: complex
     unbuffered: 'False'
     vlen: '1'
@@ -341,7 +349,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1584, 652.0]
+    coordinate: [1384, 396.0]
     rotation: 0
     state: true
 - name: blocks_float_to_complex_0
@@ -357,7 +365,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1163, 35]
+    coordinate: [1184, 40.0]
     rotation: 0
     state: true
 - name: blocks_multiply_const_vxx_0
@@ -379,7 +387,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [635, 307]
+    coordinate: [664, 332.0]
     rotation: 0
     state: true
 - name: blocks_multiply_const_vxx_1
@@ -397,7 +405,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1352, 668.0]
+    coordinate: [1384, 300.0]
     rotation: 0
     state: true
 - name: blocks_multiply_const_vxx_2
@@ -415,7 +423,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [976, 620.0]
+    coordinate: [992, 620.0]
     rotation: 0
     state: true
 - name: blocks_multiply_const_vxx_3
@@ -433,7 +441,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [805, 61]
+    coordinate: [816, 52.0]
     rotation: 0
     state: true
 - name: blocks_multiply_const_xx_0
@@ -451,7 +459,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [423, 384]
+    coordinate: [400, 404.0]
     rotation: 0
     state: true
 - name: blocks_multiply_xx_0
@@ -459,7 +467,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    comment: ''
+    comment: FM center carrier in spectrum
     maxoutbuf: '0'
     minoutbuf: '0'
     num_inputs: '2'
@@ -469,7 +477,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [848, 648.0]
+    coordinate: [872, 608.0]
     rotation: 0
     state: true
 - name: blocks_multiply_xx_1
@@ -489,7 +497,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [690, 128]
+    coordinate: [688, 128.0]
     rotation: 0
     state: true
 - name: low_pass_filter_0
@@ -835,7 +843,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1624, 36.0]
+    coordinate: [1368, 36.0]
     rotation: 0
     state: true
 
@@ -854,6 +862,7 @@ connections:
 - [blocks_delay_0, '0', blocks_multiply_const_vxx_0, '0']
 - [blocks_float_to_complex_0, '0', blocks_multiply_const_vxx_1, '0']
 - [blocks_float_to_complex_0, '0', low_pass_filter_0, '0']
+- [blocks_float_to_complex_0, '0', osmosdr_sink_0, '0']
 - [blocks_float_to_complex_0, '0', qtgui_waterfall_sink_x_0, '0']
 - [blocks_multiply_const_vxx_0, '0', blocks_add_xx_0, '2']
 - [blocks_multiply_const_vxx_1, '0', blocks_file_sink_0, '0']

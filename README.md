@@ -32,10 +32,13 @@ in order to create a recorded file.
 This file can be played (as file source) via GRC graphs.
 It demodulates the generated signal and via OBS knob you can figure out
 what the location (FROM) the station was (via "VOR_playFile_Simulator2.grc").
+The "File_Analyzer.grc" should work and demodulate also this generated file (sample rate 2M),
+just the tone frequency of the Morse Code has a higher pitch (you could adjust/modify the graph to fix it).
 
 ATTENTION: the receiver as "VOR_playFile_Simulator2.grc" will NOT work with a
 a real SDR receiver, on a real VOR signal:
 The internal waveforms are trimmed and the approach is not the right way on a live signal!
+Maybe the "File_Analyzer.grc" works for a live VOR reception (not tried).
 
 ## Demodulate a recorded VOR file
 The file "File_Analyzer.grc" is intended to demodulate a real live signal,
@@ -43,13 +46,17 @@ recorded with HackRFOne in the vinicity of a VOR (ELB, 117.2, in SoCal).
 BUT!:
 It works to hear the morse code, I get the 30 Hz reference and variable signals. But both 30 Hz sine waves are drifting: there is not a constant phase difference.
 It is the graph itself, because it happens also with a GRC to generate a VOR signal as file. They drift as well.
+Update:
+A newer version now. Important to keep the sample rate on all blocks with a correct ratio: converting from 2M (as decimal "mega") to something
+like 1024K (as binary "kilo") causes this issue (not really an integer ratio possible between both).
 
 ## Demo ELB VOR
 Take these files:
 * "File_Analyzer.grc" - it uses recorded file "ELB_VOR_2MSPS.complex"
 * unzip file "ELB_VOR_2MSPS.zip" into "ELB_VOR_2MSPS.complex"
 * play the graph: you should hear the morse code "ELB" and see the 30 Hz signals on scope
-* the "phase difference measurement" is not done (because of the drifting phases, will not work anyway)
+* the graph is trimmed for the VOR signal (ELB) and the location when done the recording (it shows you FROM during the time of
+  recording)
 
 If you like to generate your own file (or transmit one, e.g. via HackRFOne):
 * use "VOR_Test_FINAL.grc"
